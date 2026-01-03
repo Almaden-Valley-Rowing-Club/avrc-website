@@ -1,34 +1,24 @@
-# Astro Starter Kit: Basics
+# Almaden Valley Rowing Club website
 
-```sh
-npm create astro@latest -- --template basics
-```
+This repository contains the sources for the [Almaden Rowing Club (AVRAC) website](https://avrowing.org/).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Project overview
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+The AVRC site is built on [Astro](https://astro.build/), a JavaScript web framework for content-driven websites.
 
 To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-## 🧞 Commands
+## Contributing
+
+1. Fork this repo to your personal GitHub namespace.
+1. Clone the sources to your machine.
+1. From within the project's root directory, run `npm run dev`
+1. Point your browser to <http://localhost:4321/> for a live view of your dev build.
+1. `git commit` and `git push` to a branch on your fork.
+1. Submit a pull request against the canonical repo.
+1. Profit!
+
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -41,6 +31,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## License
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The contents of this repository are licensed under the [BSD License](./LICENSE).
