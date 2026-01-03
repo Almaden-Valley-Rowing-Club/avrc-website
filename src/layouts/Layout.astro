@@ -17,12 +17,15 @@
 			<div class="container">
 				<div class="nav-content">
 					<a href="#home" class="logo">AVRC</a>
-				<div class="nav-links">
-					<a href="#about">About</a>
-					<a href="#programs">Programs</a>
-					<a href="#location">Location</a>
-					<a href="#contact">Sign Up</a>
-				</div>
+					<button class="nav-toggle" aria-label="Toggle navigation">
+						<span class="hamburger"></span>
+					</button>
+					<div class="nav-links">
+						<a href="#about">About</a>
+						<a href="#programs">Programs</a>
+						<a href="#location">Location</a>
+						<a href="#contact">Sign Up</a>
+					</div>
 				</div>
 			</div>
 		</nav>
@@ -31,9 +34,9 @@
 		<section id="home" class="hero">
 			<div class="hero-overlay"></div>
 			<div class="container hero-content">
-			<h1 class="hero-title">Almaden Valley Rowing Club</h1>
-			<p class="hero-subtitle">An aspiring new rowing club serving the Almaden Valley area.</p>
-			<a href="#contact" class="cta-button">Help us get started!</a>
+				<h1 class="hero-title">Almaden Valley Rowing Club</h1>
+				<p class="hero-subtitle">An aspiring new rowing club serving the Almaden Valley area.</p>
+				<a href="#contact" class="cta-button">Help us get started!</a>
 			</div>
 		</section>
 
@@ -71,6 +74,39 @@
 				</div>
 			</div>
 		</footer>
+
+		<script>
+			// Mobile navigation toggle
+			const navToggle = document.querySelector('.nav-toggle');
+			const navLinks = document.querySelector('.nav-links');
+			const body = document.body;
+
+			navToggle?.addEventListener('click', () => {
+				navLinks?.classList.toggle('active');
+				navToggle?.classList.toggle('active');
+				body.classList.toggle('nav-open');
+			});
+
+			// Close menu when clicking on a link
+			const links = document.querySelectorAll('.nav-links a');
+			links.forEach(link => {
+				link.addEventListener('click', () => {
+					navLinks?.classList.remove('active');
+					navToggle?.classList.remove('active');
+					body.classList.remove('nav-open');
+				});
+			});
+
+			// Close menu when clicking outside
+			document.addEventListener('click', (e) => {
+				const target = e.target as HTMLElement;
+				if (!target.closest('.nav-content') && navLinks?.classList.contains('active')) {
+					navLinks?.classList.remove('active');
+					navToggle?.classList.remove('active');
+					body.classList.remove('nav-open');
+				}
+			});
+		</script>
 	</body>
 </html>
 
@@ -137,6 +173,56 @@
 		color: var(--primary-color);
 		text-decoration: none;
 		letter-spacing: 2px;
+	}
+
+	.nav-toggle {
+		display: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem;
+		z-index: 1001;
+	}
+
+	.hamburger {
+		display: block;
+		width: 28px;
+		height: 2px;
+		background: var(--primary-color);
+		position: relative;
+		transition: var(--transition);
+	}
+
+	.hamburger::before,
+	.hamburger::after {
+		content: '';
+		position: absolute;
+		width: 28px;
+		height: 2px;
+		background: var(--primary-color);
+		transition: var(--transition);
+	}
+
+	.hamburger::before {
+		top: -8px;
+	}
+
+	.hamburger::after {
+		top: 8px;
+	}
+
+	.nav-toggle.active .hamburger {
+		background: transparent;
+	}
+
+	.nav-toggle.active .hamburger::before {
+		transform: rotate(45deg);
+		top: 0;
+	}
+
+	.nav-toggle.active .hamburger::after {
+		transform: rotate(-45deg);
+		top: 0;
 	}
 
 	.nav-links {
@@ -320,8 +406,48 @@
 
 	/* Responsive */
 	@media (max-width: 768px) {
+		.nav-toggle {
+			display: block;
+		}
+
 		.nav-links {
-			gap: 1rem;
+			position: fixed;
+			top: 0;
+			right: -100%;
+			height: 100vh;
+			width: 70%;
+			max-width: 300px;
+			background: var(--white);
+			flex-direction: column;
+			padding: 5rem 2rem 2rem;
+			gap: 1.5rem;
+			box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+			transition: right 0.3s ease;
+			z-index: 1000;
+		}
+
+		.nav-links.active {
+			right: 0;
+		}
+
+		.nav-links a {
+			font-size: 1.2rem;
+			padding: 0.5rem 0;
+		}
+
+		body.nav-open {
+			overflow: hidden;
+		}
+
+		body.nav-open::before {
+			content: '';
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 999;
 		}
 
 		.container {
@@ -329,7 +455,7 @@
 		}
 
 		.hero {
-			padding: 4rem 0;
+			padding: 6rem 0 4rem;
 			min-height: 400px;
 		}
 
