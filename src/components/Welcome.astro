@@ -101,6 +101,20 @@
 	</div>
 </section>
 
+<!-- How to Help Section -->
+<section id="how-to-help" class="section">
+	<div class="container">
+		<h2 class="section-title">How to Help</h2>
+		<div class="help-content">
+			<ul class="help-checklist">
+				<li>Join the <a href="https://discord.gg/DPGcpscWtW">Discord community</a> and introduce yourself.</li>
+				<li>Share this site with friends and encourage them to sign up.</li>
+				<li>Help us gather more responses to the <a href="https://docs.google.com/forms/d/e/1FAIpQLScReiEFYx1W14qQCrb1WAUKdeTL3CsuICw1guiz52wIek0rZg/viewform?usp=header">sign up form</a>.</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
 <style>
 	.section {
 		padding: 5rem 0;
@@ -270,6 +284,42 @@
 		background: var(--primary-color);
 		transform: translateY(-2px);
 		box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+	}
+
+	/* How to Help Section */
+	.help-content {
+		max-width: 700px;
+		margin: 0 auto;
+	}
+
+	.help-checklist {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.help-checklist li {
+		padding: 1rem 0;
+		padding-left: 2.5rem;
+		position: relative;
+		color: var(--text-dark);
+		font-size: 1.125rem;
+		line-height: 1.7;
+		border-bottom: 1px solid #e8e8e8;
+	}
+
+	.help-checklist li:last-child {
+		border-bottom: none;
+	}
+
+	.help-checklist li::before {
+		content: '✓';
+		position: absolute;
+		left: 0;
+		color: var(--secondary-color);
+		font-weight: bold;
+		font-size: 1.5rem;
+		top: 0.75rem;
 	}
 
 	/* Responsive */
